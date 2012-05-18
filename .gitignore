@@ -3,5 +3,6 @@ share/
 lib/
 include/
 usr/
+.sass-cache/
 *.pyc
 .*.swp
