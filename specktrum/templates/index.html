@@ -1,0 +1,19 @@
+<!DOCTYPE:html>
+{% from "_formhelpers.html" import render_field %}
+<html lang="en-CA">
+  <head>
+    <title>Spektrum</title>
+  </head>
+  <body>
+    {% block content %}
+    <form method="get" action="/">
+      <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}" />
+      <dl>
+        {{ render_field(form.color_a) }}
+        {{ render_field(form.color_b) }}
+        {{ render_field(form.color_c) }}
+      </dl>
+    </form>
+    {% endblock %}
+  </body>
+</html>
