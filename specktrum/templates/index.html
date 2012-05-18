@@ -3,18 +3,38 @@
 <html lang="en-CA">
   <head>
     <title>Spektrum</title>
+    <link rel="stylesheet" href="/static/css/basestyle.css" media="screen" />
     <link rel="stylesheet" href="/static/css/style.css" media="screen" />
   </head>
   <body>
-    {% block content %}
-    <form method="get" action="/">
-      <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}" />
-      <dl>
-        {{ render_field(form.color_a) }}
-        {{ render_field(form.color_b) }}
-        {{ render_field(form.color_c) }}
-      </dl>
-    </form>
-    {% endblock %}
+    <div class="content">
+      {% block content %}
+      <fieldset>
+        <legend>Select your colours</legend>
+      <form method="POST" action="/">
+        {{ form.hidden_tag() }}
+        <dl>
+          {{ render_field(form.color_a) }}
+          {{ render_field(form.color_b) }}
+          {{ render_field(form.color_c) }}
+        </dl>
+        <input type="submit" value="Get the Specktrum!" />
+      </form>
+    </fieldset>
+      {% endblock %}
+    </div>
+    {% if page.A %}
+    <div class='got'>
+      <h4>I got</h4>
+      <p span='a'>Color a: {{ page.A.base }}</p>
+      <p span='b'>Color b: {{ page.B.base }}</p>
+      <p span='c'>Color c: {{ page.C.base }}</p>
+    </div>
+    {% endif %}
+    <div class="result">
+      {% block result %}
+        {% include "example.html" %}
+      {% endblock %}
+    </div>
   </body>
 </html>

@@ -17,10 +17,13 @@ def sassysays(colors):
     returns a stylesheet rendered by sass
     '''
     style_tmpl = ""
-    with open("static/css/style_template.sass", "r") as f:
+    with open("static/css/style.sass", "r") as f:
         style_tmpl = f.read()
+    ##print colors
+    ##print style_tmpl
     sassed = style_tmpl % colors
-    with open("static/css/style.sass", "w") as f:
+    print "Formatted: \n" + sassed
+    with open("static/css/style_set.sass", "w+") as f:
         f.write(sassed)
     ##subprocess.call("sass static/css/style.sass > static/css/style.css", shell=True)
     # TODO: make this fully python

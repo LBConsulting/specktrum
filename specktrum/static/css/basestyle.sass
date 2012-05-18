@@ -1,0 +1,19 @@
+$brand: #993300
+$action: #990019
+$function: lighten($action, 20%)
+$alert: #997f00
+$bg: desaturate(darken($brand, 20%), 20%)
+$txt: saturate(lighten($brand, 30%), 30%)
+
+body, html
+  background: $bg
+  color: $txt
+  text-shadow: 0 0 1px darken($txt, 35%)
+
+.content h1
+  background: $alert
+  color: $brand
+
+.content fieldset
+  background: linear-gradient(90deg, $brand, $bg)
+

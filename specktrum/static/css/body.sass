@@ -1,0 +1,12 @@
+@import "static/css/style_set.sass"
+$brand: $color_a
+$action: $color_b
+$function: lighten($action, 20%)
+$alert: $color_c
+$bg: desaturate(darken($brand, 20%), 20%)
+$txt: saturate(lighten($brand, 30%), 30%)
+
+.result h1
+  background: linear-gradient(90deg, $brand, $bg)
+  color: $brand
+

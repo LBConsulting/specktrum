@@ -7,6 +7,6 @@ from flaskext.babel import gettext as _
 
 class ColorSelectionForm(Form):
     color_a = TextField(_("Colour A"), [validators.length(min=6, max=6)])
-    color_b = TextField(_("Colour A"), [validators.length(min=6, max=6)])
-    color_c = TextField(_("Colour A"), [validators.length(min=6, max=6)])
+    color_b = TextField(_("Colour B"), [validators.length(min=6, max=6)])
+    color_c = TextField(_("Colour C"), [validators.length(min=6, max=6)])
 

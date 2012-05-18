@@ -1,0 +1,11 @@
+body, html {
+  background: #2e1305;
+  color: #ff7733;
+  text-shadow: 0 0 1px #802b00; }
+
+.content h1 {
+  background: #997f00;
+  color: #993300; }
+
+.content fieldset {
+  background: linear-gradient(90deg, #993300, #2e1305); }

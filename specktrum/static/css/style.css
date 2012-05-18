@@ -1,6 +1,3 @@
-body, html {
-  color: #454545;
-  background: #4e4e4e; }
-
-a, a:visited {
-  color: #4e5a6b; }
+.result h1 {
+  background: linear-gradient(90deg, #aabbcc, #82888e);
+  color: #aabbcc; }
