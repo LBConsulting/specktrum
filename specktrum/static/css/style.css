@@ -1,3 +1,16 @@
+div.result {
+  background: -moz-linear-gradient(90deg, #aabbcc, #82888e);
+  background: -webkit-linear-gradient(90deg, #aabbcc, #82888e);
+  color: #eaeef2; }
+
 .result h1 {
-  background: linear-gradient(90deg, #aabbcc, #82888e);
-  color: #aabbcc; }
+  background-color: #aabbcc; }
+
+.result .box_a {
+  background-color: #aabbcc; }
+
+.result .box_b {
+  background-color: #ca32cc; }
+
+.result .box_c {
+  background-color: #a2b2c3; }

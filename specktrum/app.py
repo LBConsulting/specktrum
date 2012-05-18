@@ -19,6 +19,11 @@ def main():
                         b=form.color_b.data,
                         c=form.color_c.data)
         page = pagefromcolors(colors)
+    else:
+        page = dict(A=dict(base="4567ea"),
+                    B=dict(base="ae6703"),
+                    C=dict(base="67ea45"))
+
     return render_template('index.html', page=page, form=form)
 
 if __name__ == "__main__":
