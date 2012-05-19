@@ -24,25 +24,20 @@
             showSwatches: true,
             showNoneButton: true,
             buttonColorize: true,
-            limit: 'websafe',
             parts: 'full',
             altProperties: 'background-color,color'
           });
           $('#color_b').colorpicker({
             showOn: 'both',
             showSwatches: true,
-            showNoneButton: true,
             buttonColorize: true,
-            limit: 'websafe',
             parts: 'full',
             altProperties: 'background-color,color'
           });
           $('#color_c').colorpicker({
             showOn: 'both',
             showSwatches: true,
-            showNoneButton: true,
             buttonColorize: true,
-            limit: 'websafe',
             parts: 'full',
             altProperties: 'background-color,color'
           });
@@ -75,9 +70,9 @@
     {% if page.A %}
     <div class='got'>
       <h4>I got</h4>
-      <p span='a'>Color a: {{ page.A.base }}</p>
-      <p span='b'>Color b: {{ page.B.base }}</p>
-      <p span='c'>Color c: {{ page.C.base }}</p>
+			<p span='a' style="background-color: #{{ page.A.base }}" >Color a: {{ page.A.base }}</p>
+      <p span='b' style="background-color: #{{ page.B.base }}">Color b: {{ page.B.base }}</p>
+      <p span='c' style="background-color: #{{ page.C.base }}">Color c: {{ page.C.base }}</p>
     </div>
     {% endif %}
     <div class="result">
