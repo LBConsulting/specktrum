@@ -1,6 +1,7 @@
 bin/
 share/
 lib/
+local
 include/
 usr/
 .sass-cache/
