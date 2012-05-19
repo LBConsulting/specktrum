@@ -7,3 +7,4 @@ usr/
 *.pyc
 .*.swp
 specktrum/static/css/style.css
+specktrum/static/css/style_set.sass
