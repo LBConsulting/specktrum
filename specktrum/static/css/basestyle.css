@@ -1,7 +1,11 @@
 body, html {
   background: #2e1305;
   color: #ff7733;
-  text-shadow: 0 0 1px #802b00; }
+  text-shadow: 0 0 1px #802b00;
+  font-family: "Baumans", fixed; }
+
+h1 {
+  font-family: "Special Elite", fixed; }
 
 .content h1 {
   background: #997f00;

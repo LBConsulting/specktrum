@@ -1,4 +1,5 @@
 @import "static/css/style_set.sass"
+
 $brand: $color_a
 $action: $color_b
 $function: lighten($action, 20%)
@@ -6,7 +7,33 @@ $alert: $color_c
 $bg: desaturate(darken($brand, 20%), 20%)
 $txt: saturate(lighten($brand, 30%), 30%)
 
-.result h1
-  background: linear-gradient(90deg, $brand, $bg)
-  color: $brand
+div.result
+  background: -moz-linear-gradient(90deg, $brand, $bg)
+  background: -webkit-linear-gradient(90deg, $brand, $bg)
+  color: lighten($brand, 20%)
 
+.brand
+  background-color: $brand
+
+.brand h4
+  background-image: -moz-linear-gradient(90deg, darken($brand, 5%), lighten($brand, 5%))
+  background-image: -webkit-linear-gradient(90deg, darken($brand, 5%), lighten($brand, 5%))
+  background-image: linear-gradient(90deg, darken($brand, 50%), lighten($brand, 50%))
+
+.action
+  background-color: $action
+
+.alert
+  background-color: $alert
+
+.result h1
+  background-color: $brand
+
+.result .box_a
+  background-color: $color_a
+
+.result .box_b
+  background-color: $color_b
+
+.result .box_c
+  background-color: $color_c

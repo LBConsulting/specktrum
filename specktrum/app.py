@@ -1,8 +1,11 @@
+import random
 from flask import Flask, render_template, request
 from forms import ColorSelectionForm
 from utils import pagefromcolors
 
 app = Flask(__name__)
+# example colours
+baseex = ("993300", "990019", "997f00")
 
 # the main show
 @app.route("/", methods=['GET', 'POST'])
@@ -12,6 +15,8 @@ def main():
     colours: a,b,c
     variations: +/-20% saturation, +/-20% brightness
     """
+    ## HACK: get a random value for ensuring no css caching
+    rando = random.getrandbits(100) 
     page = dict()
     form = ColorSelectionForm(request.form)
     if form.validate_on_submit():
@@ -19,7 +24,12 @@ def main():
                         b=form.color_b.data,
                         c=form.color_c.data)
         page = pagefromcolors(colors)
-    return render_template('index.html', page=page, form=form)
+    else:
+        page = dict(A=dict(base=baseex[0]),
+                    B=dict(base=baseex[1]),
+                    C=dict(base=baseex[2]))
+
+    return render_template('index.html', page=page, form=form, rando=rando)
 
 if __name__ == "__main__":
     app.debug = True
