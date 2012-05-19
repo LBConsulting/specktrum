@@ -9,27 +9,47 @@ baseex = ("993300", "990019", "997f00")
 
 # the main show
 @app.route("/", methods=['GET', 'POST'])
-def main():
+def main(rando=None):
     """
     takes a GET request of 3 colours and build 4 colours for each
     colours: a,b,c
     variations: +/-20% saturation, +/-20% brightness
     """
     ## HACK: get a random value for ensuring no css caching
-    rando = random.getrandbits(100) 
+    ## Is it a hack? Now I'm going to use this number to generate hex for
+    ## the 'lucky' button.
+    # 255*255*255 is based on max hex for rgb color.
+    randf = lambda: random.randint(0, 255*255*255)
+    randcolor = (hex(randf())[2:], 
+                hex(randf())[2:],
+                hex(randf())[2:])
+    randn = randf()
     page = dict()
     form = ColorSelectionForm(request.form)
-    if form.validate_on_submit():
+    try:
+        isrando = request.args.get('rando','')
+        print isrando
+        if isrando == "y":
+            colors = dict(a=randcolor[0],b=randcolor[1],c=randcolor[2])
+    except KeyError:
+        print "not random"
+        pass
+    except:
+        pass
+    if form.validate_on_submit() and isrando is None:
         colors = dict(a=form.color_a.data,
                         b=form.color_b.data,
                         c=form.color_c.data)
+        page = pagefromcolors(colors)
+    elif colors:
         page = pagefromcolors(colors)
     else:
         page = dict(A=dict(base=baseex[0]),
                     B=dict(base=baseex[1]),
                     C=dict(base=baseex[2]))
 
-    return render_template('index.html', page=page, form=form, rando=rando)
+    return render_template('index.html', page=page, form=form, rando=randn,
+            randcolor=randcolor)
 
 if __name__ == "__main__":
     app.debug = False
