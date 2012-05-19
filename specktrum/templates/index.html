@@ -4,8 +4,46 @@
   <head>
     <title>Spektrum</title>
 		<link href='http://fonts.googleapis.com/css?family=Special+Elite|Baumans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/static/css/basestyle.css" media="screen" />
-    <link rel="stylesheet" href="/static/css/style.css?{{ rando }}" media="screen" />
+    <link rel="stylesheet" href="/static/css/basestyle.css" type="text/css" 
+      media="screen" />
+    <link rel="stylesheet" href="/static/css/style.css?{{ rando }}" type="text/css"  
+      media="screen" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
+      type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"
+      type="text/javascript"></script>
+    <script src="/static/js/colorpicker/jquery.colorpicker.js"
+      type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css"
+    href="/static/js/colorpicker/jquery.colorpicker.css" />
+    {% block headerjs %}
+    <script type="text/javascript">
+      $( function() {
+          $('#color_a').colorpicker({
+            showOn: 'both',
+            showSwatches: true,
+            showNoneButton: true,
+            buttonColorize: true,
+            parts: 'full',
+            altProperties: 'background-color,color'
+          });
+          $('#color_b').colorpicker({
+            showOn: 'both',
+            showSwatches: true,
+            buttonColorize: true,
+            parts: 'full',
+            altProperties: 'background-color,color'
+          });
+          $('#color_c').colorpicker({
+            showOn: 'both',
+            showSwatches: true,
+            buttonColorize: true,
+            parts: 'full',
+            altProperties: 'background-color,color'
+          });
+        });
+    </script>
+    {% endblock %}
   </head>
   <body>
 		{% block header %}
@@ -32,9 +70,9 @@
     {% if page.A %}
     <div class='got'>
       <h4>I got</h4>
-      <p span='a'>Color a: {{ page.A.base }}</p>
-      <p span='b'>Color b: {{ page.B.base }}</p>
-      <p span='c'>Color c: {{ page.C.base }}</p>
+			<p span='a' style="background-color: #{{ page.A.base }}" >Color a: {{ page.A.base }}</p>
+      <p span='b' style="background-color: #{{ page.B.base }}">Color b: {{ page.B.base }}</p>
+      <p span='c' style="background-color: #{{ page.C.base }}">Color c: {{ page.C.base }}</p>
     </div>
     {% endif %}
     <div class="result">

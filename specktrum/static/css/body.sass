@@ -1,5 +1,76 @@
 @import "static/css/style_set.sass"
 
+.specktrum-box
+  width: 90%
+  background-image: -moz-linear-gradient(0deg, $color_a, $color_b, $color_c)
+  background-image: -webkit-linear-gradient(0deg, $color_a, $color_b, $color_c)
+  background-image: linear-gradient(0deg, $color_a, $color_b, $color_c)
+
+.color-table
+  background: white
+  color: black
+
+.color-table .base .a
+  background: $color_a
+
+.color-table .base .b
+  background: $color_b
+
+.color-table .base .c
+  background: $color_c
+
+.color-table .brightest .a
+  background: lighten($color_a, 40%)
+
+.color-table .brightest .b
+  background: lighten($color_b, 40%)
+
+.color-table .brightest .c
+  background: lighten($color_c, 40%)
+
+.color-table .brighter .a
+  background: lighten($color_a, 20%)
+
+.color-table .brighter .b
+  background: lighten($color_b, 20%)
+
+.color-table .brighter .c
+  background: lighten($color_c, 20%)
+
+.color-table .darkest .a
+  background: darken($color_a, 40%)
+
+.color-table .darkest .b
+  background: darken($color_b, 40%)
+
+.color-table .darkest .c
+  background: darken($color_c, 40%)
+
+.color-table .darker .a
+  background: darken($color_a, 20%)
+
+.color-table .darker .b
+  background: darken($color_b, 20%)
+
+.color-table .darker .c
+  background: darken($color_c, 20%)
+
+.grads .a
+  background-image: -webkit-linear-gradient(90deg, desaturate($color_a, 40%), saturate($color_a, 40%))
+  background-image: -moz-linear-gradient(90deg, desaturate($color_a, 40%), saturate($color_a, 40%))
+  background-image: linear-gradient(90deg, desaturate($color_a, 40%), saturate($color_a, 40%))
+
+.grads .b
+  background-image: -webkit-linear-gradient(90deg, desaturate($color_b, 40%), saturate($color_b, 40%))
+  background-image: -moz-linear-gradient(90deg, desaturate($color_b, 40%), saturate($color_b, 40%))
+  background-image: linear-gradient(90deg, desaturate($color_b, 40%), saturate($color_b, 40%))
+
+.grads .c
+  background-image: -webkit-linear-gradient(90deg, desaturate($color_c, 40%), saturate($color_c, 40%))
+  background-image: -moz-linear-gradient(90deg, desaturate($color_c, 40%), saturate($color_c, 40%))
+  background-image: linear-gradient(90deg, desaturate($color_c, 40%), saturate($color_c, 40%))
+
+
 $brand: $color_a
 $action: $color_b
 $function: lighten($action, 20%)
@@ -14,6 +85,7 @@ div.result
 
 .brand
   background-color: $brand
+  width: 3.5em
 
 .brand h4
   background-image: -moz-linear-gradient(90deg, darken($brand, 5%), lighten($brand, 5%))
@@ -22,18 +94,30 @@ div.result
 
 .action
   background-color: $action
+  width: 3.5em
 
 .alert
   background-color: $alert
+  width: 3.5em
 
 .result h1
-  background-color: $brand
+  background-image: -moz-linear-gradient(270deg, lighten($brand, 10%), darken($brand, 10%))
+  background-image: -webkit-linear-gradient(270deg, lighten($brand, 10%), darken($brand, 10%))
+  background-image: linear-gradient(270deg, lighten($brand, 10%), darken($brand, 10%))
 
 .result .box_a
   background-color: $color_a
+  width: 5.5em
+  padding: 0.5em
 
 .result .box_b
   background-color: $color_b
+  width: 5.5em
+  padding: 0.5em
 
 .result .box_c
   background-color: $color_c
+  width: 5.5em
+  padding: 0.5em
+
+
