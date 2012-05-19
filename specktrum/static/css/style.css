@@ -1,16 +1,30 @@
 div.result {
-  background: -moz-linear-gradient(90deg, #aabbcc, #82888e);
-  background: -webkit-linear-gradient(90deg, #aabbcc, #82888e);
-  color: #eaeef2; }
+  background: -moz-linear-gradient(90deg, #993366, #422433);
+  background: -webkit-linear-gradient(90deg, #993366, #422433);
+  color: #cc6699; }
+
+.brand {
+  background-color: #993366; }
+
+.brand h4 {
+  background-image: -moz-linear-gradient(90deg, black, #f2d9e6);
+  background-image: -webkit-linear-gradient(90deg, black, #f2d9e6);
+  background-image: linear-gradient(90deg, black, #f2d9e6); }
+
+.action {
+  background-color: #329966; }
+
+.alert {
+  background-color: #4eeded; }
 
 .result h1 {
-  background-color: #aabbcc; }
+  background-color: #993366; }
 
 .result .box_a {
-  background-color: #aabbcc; }
+  background-color: #993366; }
 
 .result .box_b {
-  background-color: #ca32cc; }
+  background-color: #329966; }
 
 .result .box_c {
-  background-color: #a2b2c3; }
+  background-color: #4eeded; }

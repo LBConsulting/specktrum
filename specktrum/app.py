@@ -3,6 +3,8 @@ from forms import ColorSelectionForm
 from utils import pagefromcolors
 
 app = Flask(__name__)
+# example colours
+baseex = ("993300", "990019", "997f00")
 
 # the main show
 @app.route("/", methods=['GET', 'POST'])
@@ -20,9 +22,9 @@ def main():
                         c=form.color_c.data)
         page = pagefromcolors(colors)
     else:
-        page = dict(A=dict(base="4567ea"),
-                    B=dict(base="ae6703"),
-                    C=dict(base="67ea45"))
+        page = dict(A=dict(base=baseex[0]),
+                    B=dict(base=baseex[1]),
+                    C=dict(base=baseex[2]))
 
     return render_template('index.html', page=page, form=form)
 
