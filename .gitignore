@@ -6,3 +6,4 @@ usr/
 .sass-cache/
 *.pyc
 .*.swp
+specktrum/static/css/style.css
