@@ -32,6 +32,6 @@ def main():
     return render_template('index.html', page=page, form=form, rando=rando)
 
 if __name__ == "__main__":
-    app.debug = True
+    app.debug = False
     app.secret_key = "45OIUKX97H8Uu12oiayhtiaet"
-    app.run()
+    app.run(port=5015)
