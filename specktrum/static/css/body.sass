@@ -19,57 +19,68 @@
 .color-table .base .c
   background: $color_c
 
+@mixin brightest($color)
+  background: lighten($color, 40%)
+
+@mixin brighter($color)
+  background: lighten($color, 20%)
+
+@mixin darker($color)
+  background: darken($color, 20%)
+
+@mixin darkest($color)
+  background: darken($color, 40%)
+
 .color-table .brightest .a
-  background: lighten($color_a, 40%)
+  @include brightest($color_a)
 
 .color-table .brightest .b
-  background: lighten($color_b, 40%)
+  @include brightest($color_b)
 
 .color-table .brightest .c
-  background: lighten($color_c, 40%)
+  @include brightest($color_c)
 
 .color-table .brighter .a
-  background: lighten($color_a, 20%)
+  @include brighter($color_a)
 
 .color-table .brighter .b
-  background: lighten($color_b, 20%)
+  @include brighter($color_b)
 
 .color-table .brighter .c
-  background: lighten($color_c, 20%)
+  @include brighter($color_c)
 
 .color-table .darkest .a
-  background: darken($color_a, 40%)
+  @include darkest($color_a)
 
 .color-table .darkest .b
-  background: darken($color_b, 40%)
+  @include darkest($color_b)
 
 .color-table .darkest .c
-  background: darken($color_c, 40%)
+  @include darkest($color_c)
 
 .color-table .darker .a
-  background: darken($color_a, 20%)
+  @include darker($color_a)
 
 .color-table .darker .b
-  background: darken($color_b, 20%)
+  @include darker($color_b)
 
 .color-table .darker .c
-  background: darken($color_c, 20%)
+  @include darker($color_c)
+
+@mixin grad($color)
+  background-image: -webkit-linear-gradient(90deg, darken($color, 40%), lighten($color, 40%))
+  background-image: -moz-linear-gradient(90deg, darken($color, 40%), lighten($color, 40%))
+  background-image: linear-gradient(90deg, darken($color, 40%), lighten($color, 40%))
+  
 
 .grads .a
-  background-image: -webkit-linear-gradient(90deg, desaturate($color_a, 40%), saturate($color_a, 40%))
-  background-image: -moz-linear-gradient(90deg, desaturate($color_a, 40%), saturate($color_a, 40%))
-  background-image: linear-gradient(90deg, desaturate($color_a, 40%), saturate($color_a, 40%))
+  @include grad($color_a)
 
 .grads .b
-  background-image: -webkit-linear-gradient(90deg, desaturate($color_b, 40%), saturate($color_b, 40%))
-  background-image: -moz-linear-gradient(90deg, desaturate($color_b, 40%), saturate($color_b, 40%))
-  background-image: linear-gradient(90deg, desaturate($color_b, 40%), saturate($color_b, 40%))
+  @include grad($color_b)
 
 .grads .c
-  background-image: -webkit-linear-gradient(90deg, desaturate($color_c, 40%), saturate($color_c, 40%))
-  background-image: -moz-linear-gradient(90deg, desaturate($color_c, 40%), saturate($color_c, 40%))
-  background-image: linear-gradient(90deg, desaturate($color_c, 40%), saturate($color_c, 40%))
-
+  @include grad($color_c)
 
 $brand: $color_a
 $action: $color_b

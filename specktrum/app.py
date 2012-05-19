@@ -20,12 +20,14 @@ def main(rando=None):
     ## the 'lucky' button.
     # 255*255*255 is based on max hex for rgb color.
     randf = lambda: random.randint(0, 255*255*255)
-    randcolor = (hex(randf())[2:], 
-                hex(randf())[2:],
-                hex(randf())[2:])
+    randhex = lambda: "%06x" % (random.random() * 0xffffff)
+    randcolor = (randhex(), 
+                randhex(),
+                randhex())
     randn = randf()
     page = dict()
     form = ColorSelectionForm(request.form)
+    colors = ""
     try:
         isrando = request.args.get('rando','')
         print isrando
@@ -41,8 +43,11 @@ def main(rando=None):
                         b=form.color_b.data,
                         c=form.color_c.data)
         page = pagefromcolors(colors)
-    elif colors:
+    elif colors != "": 
         page = pagefromcolors(colors)
+        form.color_a.data = randcolor[0]
+        form.color_b.data = randcolor[1]
+        form.color_c.data = randcolor[2]
     else:
         page = dict(A=dict(base=baseex[0]),
                     B=dict(base=baseex[1]),
@@ -52,6 +57,6 @@ def main(rando=None):
             randcolor=randcolor)
 
 if __name__ == "__main__":
-    app.debug = False
+    app.debug = True
     app.secret_key = "45OIUKX97H8Uu12oiayhtiaet"
     app.run(port=5015)
