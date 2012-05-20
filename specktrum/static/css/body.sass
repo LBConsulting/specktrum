@@ -1,5 +1,14 @@
 @import "static/css/style_set.sass"
 
+.result
+  font:
+    family: "Arial", sans
+  color: complement($color_a)
+
+.result h1
+  font:
+    family: "Times New Roman", sans-serif
+
 img.logo
   float: left
   width: 150px
@@ -10,6 +19,55 @@ img.logo
   background-image: -moz-linear-gradient(0deg, $color_a, $color_b, $color_c)
   background-image: -webkit-linear-gradient(0deg, $color_a, $color_b, $color_c)
   background-image: linear-gradient(0deg, $color_a, $color_b, $color_c)
+
+@mixin hspectrum($color)
+  $s1: adjust-hue($color, 64)
+  $s2: adjust-hue($color, 32)
+  $s3: adjust-hue($color, -32)
+  $s4: adjust-hue($color, -64)
+  background-image: -moz-linear-gradient(1deg, $s1, $s2, $color, $s3, $s4)
+  background-image: -webkit-linear-gradient(1deg, $s1, $s2, $color, $s3, $s4)
+  background-image: linear-gradient(1deg, $s1, $s2, $color, $s3, $s4)
+
+@mixin mhues($color)
+  background: adjust-hue($color, 64)
+
+@mixin mhue($color)
+  background: adjust-hue($color, 32)
+
+@mixin lhue($color)
+  background: adjust-hue($color, -32)
+
+@mixin lhues($color)
+  background: adjust-hue($color, -64)
+
+.hue-table
+  background: white
+  color: black
+  font-family: "Arial"
+
+.hue-table .mhues .a
+  @include mhues($color_a)
+.hue-table .mhue .a
+  @include mhue($color_a)
+.hue-table .base .a
+  background: $color_a
+.hue-table .lhue .a
+  @include lhue($color_a)
+.hue-table .lhues .a
+  @include lhues($color_a)
+
+.hue-specktrum-box
+  width: 90%
+
+.hue-specktrum-box.a
+  @include hspectrum($color_a)
+
+.hue-specktrum-box.b
+  @include hspectrum($color_b)
+
+.hue-specktrum-box.c
+  @include hspectrum($color_c)
 
 .color-table
   background: white
@@ -72,6 +130,13 @@ img.logo
 .color-table .darker .c
   @include darker($color_c)
 
+@mixin rad_grad($color)
+  background-image: -moz-radial-gradient(center, ellipse cover, $color 22%, darken($color, 20%))
+  background-image: -webkit-radial-gradient(center, ellipse cover, $color 22%, darken($color, 20%))
+  background-image: radial-gradient(center, ellipse cover, $color 22%, darken($color, 20%))
+  background-image: -o-radial-gradient(center, ellipse cover, $color 22%, darken($color, 20%))
+  background-image: -ms-radial-gradient(center, ellipse cover, $color 22%, darken($color, 20%))
+
 @mixin grad($color)
   background-image: -webkit-linear-gradient(90deg, darken($color, 40%), lighten($color, 40%))
   background-image: -moz-linear-gradient(90deg, darken($color, 40%), lighten($color, 40%))
@@ -86,6 +151,17 @@ img.logo
 
 .grads .c
   @include grad($color_c)
+
+.rgrads .a
+  @include rad_grad($color_a)
+
+.rgrads .b
+  @include rad_grad($color_b)
+
+.rgrads .c
+  @include rad_grad($color_c)
+
+
 
 $brand: $color_a
 $action: $color_b
@@ -136,4 +212,26 @@ div.result
   width: 5.5em
   padding: 0.5em
 
+
+.hue-table .mhues .b
+  @include mhues($color_b)
+.hue-table .mhue .b
+  @include mhue($color_b)
+.hue-table .base .b
+  background: $color_b
+.hue-table .lhue .b
+  @include lhue($color_b)
+.hue-table .lhues .b
+  @include lhues($color_b)
+
+.hue-table .mhues .c
+  @include mhues($color_c)
+.hue-table .mhue .c
+  @include mhue($color_c)
+.hue-table .base .c
+  background: $color_c
+.hue-table .lhue .c
+  @include lhue($color_c)
+.hue-table .lhues .c
+  @include lhues($color_c)
 
