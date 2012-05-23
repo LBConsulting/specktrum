@@ -1,3 +1,3 @@
 [submodule "specktrum/static/js/colorpicker"]
 	path = specktrum/static/js/colorpicker
-	url = https://github.com/vanderlee/colorpicker.git
+	url = git://github.com/octaflop/colorpicker

@@ -1,10 +1,73 @@
 @import "static/css/style_set.sass"
 
+.result
+  font:
+    family: "Arial", sans
+  color: complement($color_a)
+
+.result h1
+  font:
+    family: "Times New Roman", sans-serif
+
+img.logo
+  float: left
+  width: 150px
+  height: 150px
+
 .specktrum-box
   width: 90%
   background-image: -moz-linear-gradient(0deg, $color_a, $color_b, $color_c)
   background-image: -webkit-linear-gradient(0deg, $color_a, $color_b, $color_c)
   background-image: linear-gradient(0deg, $color_a, $color_b, $color_c)
+
+@mixin hspectrum($color)
+  $s1: adjust-hue($color, 64)
+  $s2: adjust-hue($color, 32)
+  $s3: adjust-hue($color, -32)
+  $s4: adjust-hue($color, -64)
+  background-image: -moz-linear-gradient(1deg, $s1, $s2, $color, $s3, $s4)
+  background-image: -webkit-linear-gradient(1deg, $s1, $s2, $color, $s3, $s4)
+  background-image: linear-gradient(1deg, $s1, $s2, $color, $s3, $s4)
+
+@mixin mhues($color)
+  background: adjust-hue($color, 64)
+
+@mixin mhue($color)
+  background: adjust-hue($color, 32)
+
+@mixin lhue($color)
+  background: adjust-hue($color, -32)
+
+@mixin lhues($color)
+  background: adjust-hue($color, -64)
+
+.hue-table
+  background: white
+  color: black
+  font-family: "Arial"
+
+.hue-table .mhues .a
+  @include mhues($color_a)
+.hue-table .mhue .a
+  @include mhue($color_a)
+.hue-table .base .a
+  background: $color_a
+.hue-table .lhue .a
+  @include lhue($color_a)
+.hue-table .lhues .a
+  @include lhues($color_a)
+
+.hue-specktrum-box
+  width: 90%
+
+.hue-specktrum-box.a
+  @include hspectrum($color_a)
+
+.hue-specktrum-box.b
+  @include hspectrum($color_b)
+
+.hue-specktrum-box.c
+  @include hspectrum($color_c)
 
 .color-table
   background: white
@@ -19,56 +82,85 @@
 .color-table .base .c
   background: $color_c
 
+@mixin brightest($color)
+  background: lighten($color, 40%)
+
+@mixin brighter($color)
+  background: lighten($color, 20%)
+
+@mixin darker($color)
+  background: darken($color, 20%)
+
+@mixin darkest($color)
+  background: darken($color, 40%)
+
 .color-table .brightest .a
-  background: lighten($color_a, 40%)
+  @include brightest($color_a)
 
 .color-table .brightest .b
-  background: lighten($color_b, 40%)
+  @include brightest($color_b)
 
 .color-table .brightest .c
-  background: lighten($color_c, 40%)
+  @include brightest($color_c)
 
 .color-table .brighter .a
-  background: lighten($color_a, 20%)
+  @include brighter($color_a)
 
 .color-table .brighter .b
-  background: lighten($color_b, 20%)
+  @include brighter($color_b)
 
 .color-table .brighter .c
-  background: lighten($color_c, 20%)
+  @include brighter($color_c)
 
 .color-table .darkest .a
-  background: darken($color_a, 40%)
+  @include darkest($color_a)
 
 .color-table .darkest .b
-  background: darken($color_b, 40%)
+  @include darkest($color_b)
 
 .color-table .darkest .c
-  background: darken($color_c, 40%)
+  @include darkest($color_c)
 
 .color-table .darker .a
-  background: darken($color_a, 20%)
+  @include darker($color_a)
 
 .color-table .darker .b
-  background: darken($color_b, 20%)
+  @include darker($color_b)
 
 .color-table .darker .c
-  background: darken($color_c, 20%)
+  @include darker($color_c)
+
+@mixin rad_grad($color)
+  background-image: -moz-radial-gradient(center, ellipse cover, $color 22%, darken($color, 20%))
+  background-image: -webkit-radial-gradient(center, ellipse cover, $color 22%, darken($color, 20%))
+  background-image: radial-gradient(center, ellipse cover, $color 22%, darken($color, 20%))
+  background-image: -o-radial-gradient(center, ellipse cover, $color 22%, darken($color, 20%))
+  background-image: -ms-radial-gradient(center, ellipse cover, $color 22%, darken($color, 20%))
+
+@mixin grad($color)
+  background-image: -webkit-linear-gradient(90deg, darken($color, 40%), lighten($color, 40%))
+  background-image: -moz-linear-gradient(90deg, darken($color, 40%), lighten($color, 40%))
+  background-image: linear-gradient(90deg, darken($color, 40%), lighten($color, 40%))
+  
 
 .grads .a
-  background-image: -webkit-linear-gradient(90deg, desaturate($color_a, 40%), saturate($color_a, 40%))
-  background-image: -moz-linear-gradient(90deg, desaturate($color_a, 40%), saturate($color_a, 40%))
-  background-image: linear-gradient(90deg, desaturate($color_a, 40%), saturate($color_a, 40%))
+  @include grad($color_a)
 
 .grads .b
-  background-image: -webkit-linear-gradient(90deg, desaturate($color_b, 40%), saturate($color_b, 40%))
-  background-image: -moz-linear-gradient(90deg, desaturate($color_b, 40%), saturate($color_b, 40%))
-  background-image: linear-gradient(90deg, desaturate($color_b, 40%), saturate($color_b, 40%))
+  @include grad($color_b)
 
 .grads .c
-  background-image: -webkit-linear-gradient(90deg, desaturate($color_c, 40%), saturate($color_c, 40%))
-  background-image: -moz-linear-gradient(90deg, desaturate($color_c, 40%), saturate($color_c, 40%))
-  background-image: linear-gradient(90deg, desaturate($color_c, 40%), saturate($color_c, 40%))
+  @include grad($color_c)
+
+.rgrads .a
+  @include rad_grad($color_a)
+
+.rgrads .b
+  @include rad_grad($color_b)
+
+.rgrads .c
+  @include rad_grad($color_c)
+
 
 
 $brand: $color_a
@@ -120,4 +212,26 @@ div.result
   width: 5.5em
   padding: 0.5em
 
+
+.hue-table .mhues .b
+  @include mhues($color_b)
+.hue-table .mhue .b
+  @include mhue($color_b)
+.hue-table .base .b
+  background: $color_b
+.hue-table .lhue .b
+  @include lhue($color_b)
+.hue-table .lhues .b
+  @include lhues($color_b)
+
+.hue-table .mhues .c
+  @include mhues($color_c)
+.hue-table .mhue .c
+  @include mhue($color_c)
+.hue-table .base .c
+  background: $color_c
+.hue-table .lhue .c
+  @include lhue($color_c)
+.hue-table .lhues .c
+  @include lhues($color_c)
 
