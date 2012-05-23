@@ -41,6 +41,11 @@
             parts: 'full',
             altProperties: 'background-color,color'
           });
+
+          $("#rando").click(function () {
+              window.location.replace("/?rando=y");
+          });
+
         });
     </script>
     {% endblock %}
@@ -48,6 +53,7 @@
   <body>
 		{% block header %}
 			<header>
+			<img src="/static/img/logo.png" alt="Specktrum logo" class="logo" />
 			<h1>Specktrum</h1>
 			</header>
 		{% endblock %}
@@ -63,6 +69,7 @@
           {{ render_field(form.color_c) }}
         </dl>
         <input type="submit" value="Get the Specktrum!" />
+        <input type="button" value="Random Specktrum!?" id="rando" />
       </form>
     </fieldset>
       {% endblock %}
