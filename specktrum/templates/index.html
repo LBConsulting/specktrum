@@ -64,9 +64,9 @@
       <form method="POST" action="/">
         {{ form.hidden_tag() }}
         <dl>
-          {{ render_field(form.color_a) }}
-          {{ render_field(form.color_b) }}
-          {{ render_field(form.color_c) }}
+          {{ render_field(form.color_a, type='color') }}
+          {{ render_field(form.color_b, type='color') }}
+          {{ render_field(form.color_c, type='color') }}
         </dl>
         <input type="submit" value="Get the Specktrum!" />
         <input type="button" value="Random Specktrum!?" id="rando" />

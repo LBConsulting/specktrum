@@ -1,0 +1,3 @@
+[submodule "specktrum/static/js/spectrum"]
+	path = specktrum/static/js/spectrum
+	url = git@github.com:octaflop/spectrum.git
