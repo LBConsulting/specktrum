@@ -24,26 +24,16 @@ def main(rando=None):
     randcolor = (randhex(), 
                 randhex(),
                 randhex())
-    randn = randf()
-    page = dict()
+    randn = randf() # ensures css caching
     form = ColorSelectionForm(request.form)
-    colors = ""
-    try:
-        isrando = request.args.get('rando','')
-        print isrando
-        if isrando == "y":
-            colors = dict(a=randcolor[0],b=randcolor[1],c=randcolor[2])
-    except KeyError:
-        print "not random"
-        pass
-    except:
-        pass
-    if form.validate_on_submit() and isrando is None:
+    isrando = request.args.get('rando','')
+    if form.validate_on_submit():
         colors = dict(a=form.color_a.data,
-                        b=form.color_b.data,
-                        c=form.color_c.data)
+                    b=form.color_b.data,
+                    c=form.color_c.data)
         page = pagefromcolors(colors)
-    elif colors != "": 
+    elif isrando == "y":
+        colors = dict(a=randcolor[0],b=randcolor[1],c=randcolor[2])
         page = pagefromcolors(colors)
         form.color_a.data = randcolor[0]
         form.color_b.data = randcolor[1]

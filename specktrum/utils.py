@@ -14,7 +14,9 @@ def pagefromcolors(colors):
 
 def sassysays(colors):
     '''
-    returns a stylesheet rendered by sass
+    returns true for 
+    a stylesheet rendered by sass
+    (static function)
     '''
     style_tmpl = ""
     with open("static/css/style.sass", "r") as f:
